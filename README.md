@@ -1,5 +1,5 @@
 # Spanish Conjugation Flashcards
-This is a python script that creates text files, containing conjugations for the spanish verbs you provided, ready to be imported into Quizlet.
+This is a python script that creates text files, containing conjugations for the spanish verbs you provided, ready to be imported into Quizlet. The conjugations are scraped from spanishdict.com
 
 # Example
 __Supported types as indicated in the script itself__
@@ -50,4 +50,3 @@ This was a quick script I put together, to aid me in memorizing different conjug
 - Write tests
 - Allow user to specify supported types without having to modify the python script itself
 - Allow user to exclude certain pronouns (temporary fix: use grep to remove lines containing the unneeded pronoun from the text files)
-
