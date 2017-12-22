@@ -3,18 +3,23 @@ This is a python script that creates text files, containing conjugations for the
 
 # Example
 __Supported types as indicated in the script itself__
+
 `supported_types = ['presentIndicative', 'preteritIndicative','imperfectIndicative', 'presentSubjunctive']`
 __Contents of words.txt__
+
 ```
 ganar
 llevar
 ```
 __Running the script__
+
 `python conjugation-flashcards.py words.txt`
 __After the script runs__
+
 Several files are created, such as `presentIndicative.txt`,
 `preteritIndicative.txt`, `imperfectIndicative.txt`, `presentSubjunctive.txt`.
 __Output of presentIndicative.txt__
+
 ```
 yo ganar	 gano
 tú ganar	 ganas
