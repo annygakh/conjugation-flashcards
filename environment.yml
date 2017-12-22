@@ -1,4 +1,4 @@
-name:  collect_spanish_verbs
+name:  conjugation-flashcards
 dependencies:
     - python>=3.5
     - beautifulsoup4

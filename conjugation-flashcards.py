@@ -12,8 +12,10 @@ import csv
 supported_types = ['presentIndicative', 'preteritIndicative','imperfectIndicative', 'presentSubjunctive' ]
 
 def find_extract_html_el(verb):
-    URL = "http://www.spanishdict.com/conjugate/{0}".format(verb)
-    response = urllib.request.urlopen(URL)
+    URL_BASE = "http://www.spanishdict.com/conjugate/"
+    quoted_verb = urllib.parse.quote(verb)
+    url = URL_BASE + quoted_verb    
+    response = urllib.request.urlopen(url)
     data = response.read()
     soup = BeautifulSoup(data, "html.parser")
     main_cont = soup.find('div', attrs={'class':'main-container'})
