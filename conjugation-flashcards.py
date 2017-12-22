@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[8]:
 
 
 from bs4 import BeautifulSoup
@@ -9,7 +9,39 @@ import urllib.request
 import sys
 import csv
 
-supported_types = ['presentIndicative', 'preteritIndicative','imperfectIndicative', 'presentSubjunctive' ]
+# Change this to indicate which types you want to create flash cards for
+supported_types = ['presentIndicative', 'preteritIndicative','imperfectIndicative', 'presentSubjunctive']
+# Possible types are
+# Indicative
+#    presentIndicative
+#    preteritIndicative
+#    imperfectIndicative
+#    conditionalIndicative
+#    futureIndicative
+# Subjunctive
+#    presentSubjunctive
+#    imperfectSubjunctive
+#    imperfectSubjunctive2
+#    futureSubjunctive
+# Imperative
+#    imperative
+#    negativeImperative
+# Continious Progressive
+#    presentContinuous
+#    preteritContinuous
+#    imperfectContinuous
+#    conditionalContinuous
+#    futureContinuous
+# Perfect
+#    presentPerfect
+#    preteritPerfect
+#    pastPerfect
+#    conditionalPerfect
+#    futurePerfect
+# Perfect Subjunctive
+#    presentPerfectSubjunctive
+#    pastPerfectSubjunctive
+#    futurePerfectSubjunctive
 
 def find_extract_html_el(verb):
     URL_BASE = "http://www.spanishdict.com/conjugate/"
@@ -32,11 +64,11 @@ def extract_conjugations(card):
     #    The two divs above contain conjugations for different tense for the same mood, e.g. indicative, subjunctive, etc
     # </div>
 
-    current_mood = None 
-    dicts = {'presentIndicative' : {},
-            'preteritIndicative' : {},
-            'imperfectIndicative': {},
-            'presentSubjunctive' : {}}
+    current_mood = None
+    dicts = {}
+    # Initialize the dictionaries
+    for sup_type in supported_types:
+        dicts[sup_type] = {}
 
     for card_div in card.children:
         if (card_div.name != 'div') or card_div.get('class') == None:
@@ -70,7 +102,7 @@ def extract_conjugations(card):
     return dicts
 
 
-# In[2]:
+# In[9]:
 
 
 def process_word(verb):
@@ -89,7 +121,6 @@ def process_word(verb):
                 continue
             for pronoun in curr_dict:
                 flashcard = "{} {}\t {}".format(pronoun, verb, curr_dict[pronoun])
-#                 print(flashcard)
                 writer.writerow([flashcard])
     print("Processed verb '{}'".format(verb))
 
@@ -105,7 +136,7 @@ def find_conjugations(textfile):
         print("Could not find file {} in current directory".format(textfile))
 
 
-# In[3]:
+# In[10]:
 
 
 if __name__ == "__main__":
@@ -114,6 +145,12 @@ if __name__ == "__main__":
     else:
         find_conjugations(sys.argv[1])
         print("Done processing")
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
