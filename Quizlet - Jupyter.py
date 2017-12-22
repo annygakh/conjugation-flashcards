@@ -108,7 +108,7 @@ def find_conjugations(textfile):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: {} <text file with \\n separated words\n".format(sys.argv[0]))
+        print("Usage: {} <text file with \\n separated words>\n".format(sys.argv[0]))
     else:
         find_conjugations(sys.argv[1])
         print("Done processing")
