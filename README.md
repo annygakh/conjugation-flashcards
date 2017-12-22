@@ -46,6 +46,7 @@ ellos/ellas/Uds. enseñar	 enseñan
 
 ### Installation
 All the necessary packages are specified in `environment.yml`.
+
 __For conda users__
 `conda env create`
 
