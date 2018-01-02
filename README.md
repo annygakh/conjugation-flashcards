@@ -10,7 +10,7 @@ __Contents of words.txt__
 
 ```
 ganar
-llevar
+enseñar
 ```
 __Running the script__
 
